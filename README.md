@@ -1,17 +1,21 @@
-# Robô Vigia Inteligente com Controle Web - Raspberry Pi Pico
+# Robô Vigia Inteligente com Sistema de Combustível - Raspberry Pi Pico (PARTE 2)
 
-Sistema de vigilância robótica com controle remoto via Wi-Fi utilizando RP2040 (Raspberry Pi Pico), que monitora um ambiente industrial, detecta de obstáculos, detecta intrusos e gerencia máquinas através de uma interface web.
+Sistema de vigilância robótica com controle remoto via Wi-Fi utilizando RP2040 (Raspberry Pi Pico), que monitora um ambiente industrial, detecta de obstáculos, detecta intrusos e gerencia máquinas e combustível através de uma interface web.
 
-## Demonstração em Vídeo
-[![Assista ao vídeo no YouTube](https://img.youtube.com/vi/GTNdH3VMdhc/hqdefault.jpg)](https://youtu.be/GTNdH3VMdhc)
 
 ## Funcionalidades Principais
- 
+
 - **Controle Web em Tempo Real**  
   Move o robô com setas virtuais (▲▼◀▶) e visualiza a posição atual
 
-- **Monitoramento Industrial**  
-  Verifica o status de máquinas (ligadas/desligadas) e as controla remotamente
+- **Gestão Inteligente de Combustível**
+  - Coleta de combustível tipo 1 e 2 em postos específicos
+  - Sistema de respawn automático após 3 segundos
+  - Entrega estratégica para máquinas específicas
+
+- **Monitoramento Industrial**
+  - Status visual de combustível em máquinas (Cheio/Parcial/Vazio)
+  - Sistema de consumo gradual (9 segundos por unidade)
 
 - **Sistema de Segurança**  
   Detecta intrusos automaticamente e permite captura remota
@@ -19,17 +23,16 @@ Sistema de vigilância robótica com controle remoto via Wi-Fi utilizando RP2040
 - **Sistema de Detecção Inteligente**
   - Algoritmo Bresenham para detecção de obstáculos em linha de visão  
   - Verificação de colisões em tempo real  
- 
-  
+
+   
 ## Componentes Utilizados
 
 | Componente                 | GPIO/Pino     | Função                                                      |
 |----------------------------|---------------|-------------------------------------------------------------|
 | Display OLED SSD1306       | 14 (SDA), 15 (SCL) | Exibição de mensagens do sistema     |
-| Matriz de LEDs WS2812B     |  | Representação visual do mapa e elementos do ambiente       |
+| Matriz de LEDs WS2812B     | 7 | Representação visual do mapa e elementos do ambiente       |
 | LED RGB Vermelho           | 13            | Indicador de colisões                    |
 | LED RGB Verde              | 11            | Indicador de operação bem sucedida
-| LED RGB Azul               | 12            | Feedback de comandos recebidos                             |
 | Buzzer                     | 21            | Alertas sonoros e confirmação de operações                 |personalizável                             |
 | Botão Joystick             | 22            | Entrada em modo BOOTSEL para atualizações                  |
 
@@ -61,12 +64,15 @@ O robô responde a estes comandos via HTTP GET:
 
 | URL            | Ação                                | Parâmetros           |
 |----------------|-------------------------------------|---------------------|
-| `/up`          | Move o robô para cima               | -                   |
-| `/down`        | Move o robô para baixo              | -                   |
-| `/left`        | Move o robô para esquerda           | -                   |
-| `/right`       | Move o robô para direita            | -                   |
-| `/capturar`    | Tenta capturar intruso adjacente    | -                   |
-| `/ligarmaquina`| Liga máquina próxima por 10 segundos| -                   |
+| `/up`            | Move o robô para cima               | -                  |
+| `/down`          | Move o robô para baixo              | -                  |
+| `/left`          | Move o robô para esquerda           | -                  |
+| `/right`         | Move o robô para direita            | -                  |
+| `/capturar`      | Captura intruso adjacente              | -                  |
+| `/coleta`        | Coleta combustível disponível           | -                  |
+| `/entrega`         | Entrega combustível para máquina            | -                  |
+
+
 
 **Exemplo de uso:**  
 `http://IP_DO_ROBO/up` - Movimenta o robô para cima  
@@ -77,7 +83,7 @@ O robô responde a estes comandos via HTTP GET:
 1. **Pré-requisitos**
    - Clonar o repositório:
      ```bash
-     git clone https://github.com/JotaPablo/RoboVigia.git
+     git clone https://github.com/JotaPablo/RoboVigiaV2.git
      cd RoboVigia
      ```
    - Instalar o **Visual Studio Code** com as extensões:

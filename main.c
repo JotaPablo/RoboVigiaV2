@@ -61,7 +61,7 @@ static ssd1306_t ssd;
 
 #define COMBUSTIVEL_1 4 // Combustivel relativo a máquina 1
 #define COMBUSTIVEL_2 5 // Combustivel relativo a máquina 2
-#define COMBUSTIVEL_MAX 2 
+#define COMBUSTIVEL_MAX 2 // Quantidade máxima que o máquina pode armazenar
 
 #define MAPA_TAM 5
 

@@ -493,7 +493,7 @@ static err_t tcp_server_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, er
     ".btn-azul{background:#2196F3;color:white}"       // Novo estilo para botão azul
     "</style></head>"
     "<script>"
-    "setInterval(function(){location.href='/';},3000);"
+    "setInterval(function(){location.href='/';},3000);" // Scrpit para atualizar a página a cada 3 segundos
     "</script>"
     "<body><h1>ROBÔ VIGIA</h1>"
 

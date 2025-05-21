@@ -18,8 +18,8 @@
 #include "lwip/netif.h"          // Lightweight IP stack - fornece funções e estruturas para trabalhar com interfaces de rede (netif)
 
 // Credenciais WIFI - Tome cuidado se publicar no github!
-#define WIFI_SSID "SSID"
-#define WIFI_PASSWORD "PASSWORD"
+#define WIFI_SSID "Tadeu"
+#define WIFI_PASSWORD "mariona6"
 
 // Definição dos Pinos
 #define RED_PIN       13
@@ -485,7 +485,7 @@ static err_t tcp_server_recv(void *arg, struct tcp_pcb *tpcb, struct pbuf *p, er
     "body{font-family:sans-serif;text-align:center;background:#eee;color:#000;margin:10px}"
     ".info{padding:10px;margin:5px;background:#fff;border-radius:5px}"
     "button{border:0;border-radius:8px;padding:12px;margin:4px;font-size:1.1em}"
-    ".ctrl{width:25vw;height:25vw;max-width:100px;max-height:100px;background:#ddd;color:#000}"
+    ".ctrl{width:20vw;height:20vw;max-width:100px;max-height:100px;background:#ddd;color:#000}"
     ".status{color:%s}"
     ".btn-vermelho{background:#f44336;color:white}"
     ".btn-amarelo{background:#ffeb3b;color:black}"

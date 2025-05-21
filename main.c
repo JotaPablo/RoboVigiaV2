@@ -77,7 +77,7 @@ int mapa[5][5] = {
 int robo_x = 2;
 int robo_y = 2;
 
-uint combustivel_robo = 0; // 0 - Nenhu; 4 - combustivel da Maquina 1; 5 - Combustivel da Maquina 2
+uint combustivel_robo = 0; // 0 - Nenhum; 4 - combustivel da Maquina 1; 5 - Combustivel da Maquina 2
 bool combustivel_1_disponivel = true;
 bool combustivel_2_disponivel = true;
 int combustivel_maq1 = COMBUSTIVEL_MAX;
